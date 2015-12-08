@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>QGIS2leaf webmap</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+		<link rel="stylesheet" type="text/css" href="css/own_style.css">
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		<script src="js/leaflet-hash.js"></script>
+		<script src="js/Autolinker.min.js"></script>
+		<script type="text/javascript" src="js/MovingMarker.js"></script>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	</head>
+	<body>
+		<div id="map"></div>
+		<script src="data/exp_path.js"></script>
+		<script src="data/exp_judetero.js"></script>
+		<script>
+		var map = L.map('map', {
+			zoomControl:true, maxZoom:19
+		}).fitBounds([[43.2272793385,19.574417267],[48.2292302725,32.3997847811]]);
+		var hash = new L.Hash(map);
+		var additional_attrib = 'created w. <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">qgis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors<br>';
+		var feature_group = new L.featureGroup([]);
+		var raster_group = new L.LayerGroup([]);
+		var layerOrder=new Array();
+		function pop_judetero(feature, layer) {
+			var popupContent = '<table><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">NAME_UTF8</th><td>' + Autolinker.link(String(feature.properties['NAME_UTF8'])) + '</td></tr><tr><th scope="row">SIRUTA</th><td>' + Autolinker.link(String(feature.properties['SIRUTA'])) + '</td></tr><tr><th scope="row">POP2004</th><td>' + Autolinker.link(String(feature.properties['POP2004'])) + '</td></tr><tr><th scope="row">POP2002</th><td>' + Autolinker.link(String(feature.properties['POP2002'])) + '</td></tr><tr><th scope="row">POP1992</th><td>' + Autolinker.link(String(feature.properties['POP1992'])) + '</td></tr><tr><th scope="row">POP1977</th><td>' + Autolinker.link(String(feature.properties['POP1977'])) + '</td></tr><tr><th scope="row">POP1966</th><td>' + Autolinker.link(String(feature.properties['POP1966'])) + '</td></tr><tr><th scope="row">POP1956</th><td>' + Autolinker.link(String(feature.properties['POP1956'])) + '</td></tr><tr><th scope="row">POP1948</th><td>' + Autolinker.link(String(feature.properties['POP1948'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStylejudetero(feature) {
+				return {
+					color: '#000000',
+					fillColor: '#6c4fa5',
+					weight: 1.3,
+					dashArray: '',
+					opacity: 1.0,
+					fillOpacity: 1.0
+				};
+
+		}
+		var exp_judeteroJSON = new L.geoJson(exp_judetero,{
+			onEachFeature: pop_judetero,
+			style: doStylejudetero
+		});
+		layerOrder[layerOrder.length] = exp_judeteroJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_judeteroJSON);
+		function pop_path(feature, layer) {
+			var popupContent = '<table><tr><th scope="row">id</th><td>' + Autolinker.link(String(feature.properties['id'])) + '</td></tr><tr><th scope="row">pid</th><td>' + Autolinker.link(String(feature.properties['pid'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStylepath(feature) {
+				return {
+					weight: 1.3,
+					color: '#85e436',
+					dashArray: '',
+					opacity: 0.3,
+					fillOpacity: 0.3
+				};
+		}
+		var exp_pathJSON = new L.geoJson(exp_path,{
+			onEachFeature: pop_path,
+			style: doStylepath
+		});
+		layerOrder[layerOrder.length] = exp_pathJSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_pathJSON);
+
+		feature_group.addTo(map);
+		var title = new L.Control();
+		title.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		title.update = function () {
+			this._div.innerHTML = '<h2>This is the title</h2>This is the subtitle'
+		};
+		title.addTo(map);
+		L.control.layers({},{"path": exp_pathJSON,"judetero": exp_judeteroJSON},{collapsed:false}).addTo(map);
+		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
+
+
+		var greenIcon = L.icon({
+		    iconUrl: 'pictures/santajmp.gif',
+		    //shadowUrl: 'pictures/leaf-shadow.png',
+
+		    iconSize:     [60, 65], // size of the icon
+		    shadowSize:   [50, 64], // size of the shadow
+		    iconAnchor:   [0, 60], // point of the icon which will correspond to marker's location
+		    shadowAnchor: [4, 65],  // the same for the shadow
+		    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+		});
+
+//moving marker
+var myMovingMarker = L.Marker.movingMarker([[ 47.671825655644447, 22.798851366000665 ], [ 47.677239980473473, 23.956752883853902 ], [ 47.245047376656032, 24.559826591065157 ]],
+										 [2000, 2000], {autostart: true, loop: true, icon: greenIcon}).addTo(map);
+//...
+myMovingMarker.loops = 2;
+//myMovingMarker.start();
+
+//...
+myMovingMarker2.start();
+
+	</script>
+</body>
+</html>
