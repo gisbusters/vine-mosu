@@ -22,6 +22,14 @@ var santaIcon = L.icon({
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
+var presentIcon = L.icon({
+    iconUrl: 'assets/present.png',
+
+    iconSize:     [40, 40], // size of the icon
+    iconAnchor:   [25, 82], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
 var d = new Date();
 var hour = d.getHours();
 var min = d.getMinutes();
@@ -37,8 +45,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 var marker2 = L.Marker.movingMarker(traseuA,
     [3000], {autostart: true, loop: true, icon: santaIcon}).addTo(map);
 
-L.marker([44, 26], {icon: santaIcon}).addTo(map);
-L.marker([46, 25], {icon: santaIcon}).addTo(map);
+L.marker([44, 26], {icon: presentIcon}).addTo(map);
+L.marker([46, 25], {icon: presentIcon}).addTo(map);
 
 
 // ora 1
