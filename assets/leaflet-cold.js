@@ -2,7 +2,7 @@ var map = L.map('map', {
   center: [45.8,26.1],
   zoom: 7,
   maxZoom: 9,
-  minZoom: 5
+  minZoom: 7
 });
 
 //DATE HARTA
