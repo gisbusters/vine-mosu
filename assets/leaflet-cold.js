@@ -60,16 +60,18 @@ var presentIcon = L.icon({
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
+var d = new Date();
+/*
 var userHour = prompt("indrodu ora de test, in format 24 ore", 18);
 var userMin = prompt("indrodu minutele de test", 00);
 
 var hour = userHour;
 var min = userMin;
+*/
 
 
-var d = new Date();
-//var hour = d.getHours();
-//var min = d.getMinutes();
+var hour = d.getHours();
+var min = d.getMinutes();
 
 
 
