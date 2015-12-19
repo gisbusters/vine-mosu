@@ -72,6 +72,27 @@ var min = userMin;
 
 var hour = d.getHours();
 var min = d.getMinutes();
+var sec = d.getSeconds();
+
+
+//nu uita sa treci pe
+//reload location din cache
+//dupa ce sunt toate datele in basemap
+
+
+if (hour === 19 && min == 00 && sec == 05) { //reload pentru ora 19
+  location.reload(true);
+}else if(hour === 20 && min == 00 && sec == 05){ //reload pentru ora 20
+  location.reload(true);
+}else if(hour === 20 && min == 30 && sec == 05){ //reload pentru ora 20.30
+  location.reload(true);
+}else if(hour === 21 && min == 00 && sec == 05){ //reload pentru ora 21
+  location.reload(true);
+}else if(hour === 21 && min == 30 && sec == 05){ //reload pentru ora 21.30
+  location.reload(true);
+}else if(hour === 22 && min == 00 && sec == 05){ //reload pentru ora 22
+  location.reload(true);
+}
 
 
 
