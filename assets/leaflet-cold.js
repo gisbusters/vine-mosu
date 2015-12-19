@@ -82,16 +82,22 @@ var sec = d.getSeconds();
 
 if (hour === 19 && min == 00 && sec == 05) { //reload pentru ora 19
   location.reload(true);
+  console.log(hour)
 }else if(hour === 20 && min == 00 && sec == 05){ //reload pentru ora 20
   location.reload(true);
+  console.log(hour)
 }else if(hour === 20 && min == 30 && sec == 05){ //reload pentru ora 20.30
   location.reload(true);
+  console.log(hour)
 }else if(hour === 21 && min == 00 && sec == 05){ //reload pentru ora 21
   location.reload(true);
+  console.log(hour)
 }else if(hour === 21 && min == 30 && sec == 05){ //reload pentru ora 21.30
   location.reload(true);
+  console.log(hour)
 }else if(hour === 22 && min == 00 && sec == 05){ //reload pentru ora 22
   location.reload(true);
+  console.log(hour)
 }
 
 
