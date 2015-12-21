@@ -174,7 +174,7 @@ if (hour == 18 ){
   var polygon = L.polygon([zona7], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
 
 }else if(hour == 20 && min >= 30 ){
-  var marker4 = L.Marker.movingMarker(traseu4,spd4, {autostart: true, loop: true, icon: santaIcon}).bindPopup('ho,ho,ho!').addTo(map);
+  var marker4 = L.Marker.movingMarker(traseu4,spd4, {autostart: true, loop: true, icon: santaIcon}).bindpopup('ho,ho,ho!').addTo(map);
   var polygon = L.polygon([zona4], currentStyle).bindPopup('Mosul este in zona').addTo(map);
   var polygon = L.polygon([zona3], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona2], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
@@ -187,7 +187,7 @@ if (hour == 18 ){
   var polygon = L.polygon([zona6], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
   var polygon = L.polygon([zona7], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
 }else if(hour == 21 && min < 30 ){
-  var marker5 = L.Marker.movingMarker(traseu5,spd5, {autostart: true, loop: true, icon: santaIcon}).addTo(map);
+  var marker5 = L.Marker.movingMarker(traseu5,spd5, {autostart: true, loop: true, icon: santaIcon}).bindpopup('ho,ho,ho!').addTo(map);
   var polygon = L.polygon([zona5], currentStyle).bindPopup('Mosul este in zona').addTo(map);
   var polygon = L.polygon([zona4], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona3], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
