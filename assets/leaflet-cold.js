@@ -1,5 +1,5 @@
 var map = L.map('map', {
-  center: [45.8,26.1],
+  center: [45.962,24.906],
   zoom: 7,
   maxZoom: 9,
   minZoom: 7
