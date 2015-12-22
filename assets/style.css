@@ -5,3 +5,20 @@
   right: 0;
   left: 0;
  }
+
+#alert{
+  width: 90%;
+  max-width: 350px;
+  position: absolute;
+  z-index: 2;
+  margin: 0 auto;
+  top:0px;
+  left: 0;
+  right: 0;
+  background: rgba(253, 254, 255, 0.62);
+  color:#55708F;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
