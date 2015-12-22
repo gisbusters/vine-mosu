@@ -61,19 +61,19 @@ var presentIcon = L.icon({
 });
 
 var d = new Date();
-/*
+
 var userHour = prompt("indrodu ora de test, in format 24 ore", 18);
 var userMin = prompt("indrodu minutele de test", 00);
 
 var hour = userHour;
 var min = userMin;
-*/
 
+/*
 
 var hour = d.getHours();
 var min = d.getMinutes();
 var sec = d.getSeconds();
-
+*/
 
 //nu uita sa treci pe
 //reload location din cache
