@@ -105,7 +105,7 @@ if (hour === 19 && min == 00 && sec == 05) { //reload pentru ora 19
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, <a href="http://geo-spatial.org/">Geo-spatial</a> and <a href="http://gisbusters.com/">GisBusters</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
-    id: 'mirceaciu.8a527c1d',
+    id: 'gisbusters.890f641d',
     accessToken: 'pk.eyJ1IjoibWlyY2VhY2l1IiwiYSI6IjNkNGFiMTU5NjRlNGNkZTA1ZGExMDVkNjUxYzZmZDlhIn0.5E0fCQOJlyAJFjkEYX1NGg'
 }).addTo(map);
 
