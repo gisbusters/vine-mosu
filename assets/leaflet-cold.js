@@ -1,8 +1,11 @@
+var bounds = new L.LatLngBounds(new L.LatLng(48.193, 20.104), new L.LatLng(43.452, 30.08));
+
 var map = L.map('map', {
   center: [45.962,24.906],
   zoom: 7,
   maxZoom: 9,
-  minZoom: 7
+  minZoom: 7,
+  maxBounds: bounds
 });
 
 
