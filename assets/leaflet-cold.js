@@ -43,7 +43,7 @@ var min = userMin;
 var hour = d.getHours();
 var min = d.getMinutes();
 var sec = d.getSeconds();
-var day = d.getDay();
+var day = 24;
 
 
 
@@ -104,7 +104,7 @@ var unvisitedStyle ={
     "fillOpacity": 0
 };
 
-if(day == 24){
+if( day == 24){
 //CONDITIILE PE ORE
 if (hour == 18 ){
   var marker1 = L.Marker.movingMarker(traseu1,spd1, {autostart: true, loop: true, icon: santaIcon}).addTo(map);
