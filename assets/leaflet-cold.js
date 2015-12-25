@@ -240,5 +240,5 @@ if (hour == 18 ){
   L.marker(L.polygon([zona5], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
   L.marker(L.polygon([zona6], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
   L.marker(L.polygon([zona7], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  document.getElementById('alert').innerHTML = 'Mos Craciun a vizitat Romania in ziua de 24 decembrie. Tu ai primit cadou?';
+  document.getElementById('alert').innerHTML = 'Mos Craciun a vizitat Romania in seara de 24 decembrie. Tu ai primit cadou?';
 }
