@@ -43,7 +43,7 @@ var min = userMin;
 var hour = d.getHours();
 var min = d.getMinutes();
 var sec = d.getSeconds();
-var day = 24;
+var day = 'pass';
 
 
 
@@ -224,7 +224,7 @@ if (hour == 18 ){
   document.getElementById('alert').innerHTML = 'Mosu a impartit cadouri in toata tara. Doar copii care dorm vor gasii cadourile sub brad';
 }}else if(day < 24 ){
   document.getElementById('alert').innerHTML = 'Mos Craciun va sosi joi, 24 decembrie. Ne revedem atunci!';
-} else if (day > 24 ){
+} else if (day == 'pass' ){
   var polygon = L.polygon([zona7], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona6], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona5], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
