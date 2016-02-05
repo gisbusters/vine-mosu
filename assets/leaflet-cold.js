@@ -18,7 +18,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 var santaIcon = L.icon({
-    iconUrl: 'assets/santaHead.png',
+    iconUrl: 'assets/santa.svg',
     shadowUrl: 'assets/santaShadow.png',
     iconSize:     [48, 73], // size of the icon
     shadowSize:   [48, 68], // size of the shadow
@@ -40,10 +40,23 @@ var userMin = prompt("indrodu minutele de test", 00);
 var hour = userHour;
 var min = userMin;
 */
-var hour = d.getHours();
-var min = d.getMinutes();
-var sec = d.getSeconds();
-var day = 'pass';
+
+var traseu = prompt("Mosul a plecat, vrei sa urmaresti o inregistrare a traseului?", "da");
+
+if (traseu == "da") {
+  var hour = 21;
+  var min = 10;
+  var sec = 30;
+  var day = 24;
+  document.getElementById('alert').innerHTML = 'Ruta orei 21, din 24 decembrie'
+}else {
+  var hour = d.getHours();
+  var min = d.getMinutes();
+  var sec = d.getSeconds();
+  var day = 'pass';
+}
+
+
 
 
 
@@ -121,7 +134,7 @@ if (hour == 18 ){
   var marker2 = L.Marker.movingMarker(traseu2,spd2, {autostart: true, loop: true, icon: santaIcon}).addTo(map);
   var polygon = L.polygon([zona2], currentStyle).bindPopup('Mosul este in zona').addTo(map);
   var polygon = L.polygon([zona1], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
-  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
+  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
 
   var polygon = L.polygon([zona3], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
   var polygon = L.polygon([zona4], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
@@ -135,8 +148,8 @@ if (hour == 18 ){
   var polygon = L.polygon([zona3], currentStyle).bindPopup('Mosul este in zona').addTo(map);
   var polygon = L.polygon([zona2], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona1], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
-  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
+  L.marker(L.polygon([zona1], currentStyle).bindPopup('Cadouri pentru cei cuminti').getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
 
   var polygon = L.polygon([zona4], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
   var polygon = L.polygon([zona5], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
@@ -149,9 +162,9 @@ if (hour == 18 ){
   var polygon = L.polygon([zona3], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona2], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona1], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
-  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
+  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
 
   var polygon = L.polygon([zona5], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
   var polygon = L.polygon([zona6], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
@@ -163,10 +176,10 @@ if (hour == 18 ){
   var polygon = L.polygon([zona3], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona2], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona1], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
-  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona4], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
+  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona4], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
 
   var polygon = L.polygon([zona6], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
   var polygon = L.polygon([zona7], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
@@ -180,11 +193,11 @@ if (hour == 18 ){
   var polygon = L.polygon([zona2], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona1], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
 
-  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona4], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona5], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
+  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona4], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona5], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
 
   var polygon = L.polygon([zona7], unvisitedStyle).bindPopup('Mosul inca nu a ajuns aici').addTo(map);
 }else if(hour == 22 ){
@@ -197,12 +210,12 @@ if (hour == 18 ){
   var polygon = L.polygon([zona2], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona1], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
 
-  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona4], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona5], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona6], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
+  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona4], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona5], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona6], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
 }else if(hour < 18 ){
   document.getElementById('alert').innerHTML = 'Mosu va ajunge in Romania in jurul orei 18';
 }else if(hour > 22 ){
@@ -214,13 +227,13 @@ if (hour == 18 ){
   var polygon = L.polygon([zona2], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona1], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
 
-  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona4], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona5], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona6], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona7], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
+  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona4], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona5], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona6], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona7], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
   document.getElementById('alert').innerHTML = 'Mosu a impartit cadouri in toata tara. Doar copii care dorm vor gasii cadourile sub brad';
 }}else if(day < 24 ){
   document.getElementById('alert').innerHTML = 'Mos Craciun va sosi joi, 24 decembrie. Ne revedem atunci!';
@@ -233,12 +246,12 @@ if (hour == 18 ){
   var polygon = L.polygon([zona2], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
   var polygon = L.polygon([zona1], visitedStyle).bindPopup('Mosul a fost aici').addTo(map);
 
-  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona4], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona5], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona6], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
-  L.marker(L.polygon([zona7], currentStyle).getBounds().getCenter(), {icon: presentIcon}).addTo(map);
+  L.marker(L.polygon([zona1], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona2], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona3], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona4], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona5], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona6], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
+  L.marker(L.polygon([zona7], currentStyle).getBounds().getCenter(), {icon: presentIcon}).bindPopup('Cadouri pentru cei cuminti').addTo(map);
   document.getElementById('alert').innerHTML = 'Mos Craciun a vizitat Romania in seara de 24 decembrie. Tu ai primit cadou?';
 }
